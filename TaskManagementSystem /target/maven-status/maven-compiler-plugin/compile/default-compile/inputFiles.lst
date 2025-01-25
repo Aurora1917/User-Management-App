@@ -1,0 +1,10 @@
+/Users/venera/Downloads/TaskManagementSystem /src/main/java/com/example/TaskManagementSystem/TaskManagementSystemApplication.java
+/Users/venera/Downloads/TaskManagementSystem /src/main/java/com/example/TaskManagementSystem/config/WebConfig.java
+/Users/venera/Downloads/TaskManagementSystem /src/main/java/com/example/TaskManagementSystem/controller/TaskController.java
+/Users/venera/Downloads/TaskManagementSystem /src/main/java/com/example/TaskManagementSystem/controller/UserController.java
+/Users/venera/Downloads/TaskManagementSystem /src/main/java/com/example/TaskManagementSystem/model/Task.java
+/Users/venera/Downloads/TaskManagementSystem /src/main/java/com/example/TaskManagementSystem/model/User.java
+/Users/venera/Downloads/TaskManagementSystem /src/main/java/com/example/TaskManagementSystem/repository/TaskRepository.java
+/Users/venera/Downloads/TaskManagementSystem /src/main/java/com/example/TaskManagementSystem/repository/UserRepository.java
+/Users/venera/Downloads/TaskManagementSystem /src/main/java/com/example/TaskManagementSystem/service/TaskService.java
+/Users/venera/Downloads/TaskManagementSystem /src/main/java/com/example/TaskManagementSystem/service/UserService.java

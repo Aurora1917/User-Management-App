@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Task Management</title>
+    <link rel="stylesheet" href="/static/html/css/styles.css">
+</head>
+<body>
+<h1>Task Management</h1>
+
+<!-- Task Ekleme Formu -->
+<form action="/tasks" method="post">
+    <label for="title">Task Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" required>
+
+    <label for="userId">Assign to User:</label>
+    <select id="userId" name="user_id" required>
+        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.name}"></option>
+    </select>
+
+    <button type="submit">Add Task</button>
+</form>
+
+<hr>
+
+<!-- Filtreleme -->
+<form action="/tasks" method="get">
+    <label for="userFilter">Filter by User:</label>
+    <select id="userFilter" name="user_id">
+        <option value="">All</option>
+        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.name}"></option>
+    </select>
+
+    <label for="statusFilter">Filter by Status:</label>
+    <select id="statusFilter" name="status">
+        <option value="">All</option>
+        <option value="PENDING">Pending</option>
+        <option value="COMPLETED">Completed</option>
+    </select>
+
+    <button type="submit">Filter</button>
+</form>
+
+<hr>
+
+<!-- Task Listesi -->
+<h2>Tasks</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>User</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.title}"></td>
+        <td th:text="${task.description}"></td>
+        <td th:text="${task.user.name}"></td>
+        <td>
+            <form action="/tasks/update-status" method="post">
+                <input type="hidden" name="taskId" th:value="${task.id}">
+                <select name="status">
+                    <option value="PENDING" th:selected="${task.status == 'PENDING'}">Pending</option>
+                    <option value="COMPLETED" th:selected="${task.status == 'COMPLETED'}">Completed</option>
+                </select>
+                <button type="submit">Update</button>
+            </form>
+        </td>
+        <td>
+            <form action="/tasks/{task.id}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
